@@ -17,10 +17,6 @@ namespace MercadoPagoPoc.Orders
             var result = await url
                    .WithHeader("Content-Type", "application/json")
                    .WithHeader("Authorization", accessToken)
-                   .AppendQueryParam("user_id", user_id)
-                   .AppendQueryParam("/pos/")
-                   .AppendQueryParam("external_pos_id", external_pos_id)
-                   .AppendQueryParam("/qrs")
                    .PostJsonAsync(request)
                    .ReceiveJson<PaymentQrCodeResponse>();
 
