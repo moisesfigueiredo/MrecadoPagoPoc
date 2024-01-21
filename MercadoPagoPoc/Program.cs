@@ -31,6 +31,8 @@ PaymentQrCodeRequest request = new PaymentQrCodeRequest
 
 request.items.Add(item);
 
+//======================================================================
+
 OrdersQRCode qrcode = new OrdersQRCode();
 
 var result = await qrcode.GeraQrCode(request);
