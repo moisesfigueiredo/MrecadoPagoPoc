@@ -4,10 +4,10 @@ using MercadoPagoPoc.Requests;
 Item item = new Item
 {
 
-    sku_number = "A123K9191938",
-    category = "marketplace",
+    //sku_number = "A123K9191938",
+    //category = "marketplace",
     title = "Point Mini",
-    description = "This is the Point Mini",
+    //description = "This is the Point Mini",
     unit_price = 100,
     quantity = 1,
     unit_measure = "unit",
