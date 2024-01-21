@@ -12,9 +12,7 @@ namespace MercadoPagoPoc.Orders
 
         public async Task<PaymentQrCodeResponse> GeraQrCode(PaymentQrCodeRequest request)
         {
-            //string url = $"https://api.mercadopago.com/instore/orders/qr/seller/collectors/{user_id}/pos/{external_pos_id}/qrs";
-
-            string url = $"https://api.mercadopago.com/instore/orders/qr/seller/collectors/";
+            string url = $"https://api.mercadopago.com/instore/orders/qr/seller/collectors/{user_id}/pos/{external_pos_id}/qrs";
 
             var result = await url
                    .WithHeader("Content-Type", "application/json")
