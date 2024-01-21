@@ -1,13 +1,17 @@
 ﻿using MercadoPagoPoc.Orders;
 using MercadoPagoPoc.Requests;
 
+CashOut cashout = new CashOut
+{
+    amount = 0,
+};
+
 Item item = new Item
 {
-
-    //sku_number = "A123K9191938",
-    //category = "marketplace",
+    sku_number = "A123K9191938",
+    category = "marketplace",
     title = "Point Mini",
-    //description = "This is the Point Mini",
+    description = "This is the Point Mini",
     unit_price = 100,
     quantity = 1,
     unit_measure = "unit",
@@ -21,9 +25,10 @@ Sponsor sponsor = new Sponsor
 
 PaymentQrCodeRequest request = new PaymentQrCodeRequest
 {
+    cash_out = cashout,
     title = "Product order",
     description = "Purchase description.",
-    external_reference = "reference_1",
+    external_reference = "reference_12345",
     notification_url = "https://www.yourserver.com/notifications",
     sponsor = sponsor,
     total_amount = 100,
