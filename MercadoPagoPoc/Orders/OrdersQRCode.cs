@@ -12,15 +12,24 @@ namespace MercadoPagoPoc.Orders
 
         public async Task<PaymentQrCodeResponse> GeraQrCode(PaymentQrCodeRequest request)
         {
-            string url = $"https://api.mercadopago.com/instore/orders/qr/seller/collectors/{user_id}/pos/{external_pos_id}/qrs";
+            try
+            {
+                string url = $"https://api.mercadopago.com/instore/orders/qr/seller/collectors/{user_id}/pos/{external_pos_id}/qrs";
 
-            var result = await url
-                   .WithHeader("Content-Type", "application/json")
-                   .WithHeader("Authorization", accessToken)
-                   .PostJsonAsync(request)
-                   .ReceiveJson<PaymentQrCodeResponse>();
+                var result = await url
+                       .WithHeader("Content-Type", "application/json")
+                       .WithHeader("Authorization", accessToken)
+                       .PostJsonAsync(request)
+                       .ReceiveJson<PaymentQrCodeResponse>();
 
-            return result;
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                var error = await ex.GetResponseJsonAsync<object>();
+                Console.Write($"Error returned from {ex.Call.Request.Url}: {error}");
+                return null;
+            }
         }
     }
 }

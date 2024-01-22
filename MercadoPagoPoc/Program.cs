@@ -15,7 +15,7 @@ Item item = new Item
     unit_price = 100,
     quantity = 1,
     unit_measure = "unit",
-    total_amount = 1,
+    total_amount = 100,
 };
 
 Sponsor sponsor = new Sponsor
